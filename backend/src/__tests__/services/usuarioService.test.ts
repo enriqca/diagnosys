@@ -14,7 +14,7 @@ jest.mock('@dao/receitaDAO');
 jest.mock('@dao/consultaDAO');
 jest.mock('@dao/pessoaDAO');
 jest.mock('@dao/medicoDAO');
-jest.mock('bcrypt');
+jest.mock('bcryptjs');
 jest.mock('@models/usuario');
 jest.mock('@models/pessoa');
   
