@@ -1,4 +1,4 @@
 */node_modules
 */.env
 backend/coverage/*
-.github/workflows/frontend-ci.yml
+backend/src/__tests__/services/usuarioService.test.ts
