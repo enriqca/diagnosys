@@ -4,7 +4,7 @@ import { listarReceitas } from '@dao/receitaDAO';
 import { listarConsultas } from '@dao/consultaDAO';
 import { criarMedico } from '@dao/medicoDAO';
 import { criarPessoa, atualizarPessoa } from '@dao/pessoaDAO';
-import bcrypt from 'bcrypt';
+const bcrypt = require('bcryptjs');
 import Usuario from '@models/usuario';
 import Pessoa from '@models/pessoa';
 import { Request, Response, NextFunction } from 'express';
