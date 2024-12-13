@@ -55,11 +55,12 @@ describe('Medico Service', () => {
     it('deve lidar com erros', async () => {
       const error = new Error('Database error');
       (listarMedicos as jest.Mock).mockRejectedValue(error);
-
+    
       await listaMedicos(req, res, next);
-
+    
       expect(res.status).toHaveBeenCalledWith(500);
       expect(res.send).toHaveBeenCalledWith('Erro ao listar os medicos');
+    
       expect(next).toHaveBeenCalledWith(error);
     });
   });

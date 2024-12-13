@@ -1,4 +1,4 @@
-import {DataTypes, Model} from "sequelize";
+import {DataTypes, Model, HasOne, BelongsTo} from "sequelize";
 import sequelize from "@config/db";
 import Usuario from "./usuario";
 import Medico from "./medico";

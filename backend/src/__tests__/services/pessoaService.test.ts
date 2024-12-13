@@ -37,13 +37,13 @@ describe('Pessoa Service', () => {
         expect(res.status).toHaveBeenCalledWith(404);
         expect(res.send).toHaveBeenCalledWith('Não há nenhuma pessoa cadastrada');
       });
-  
+
       it('deve lidar com erros', async () => {
         const error = new Error('Database error');
         (listarPessoas as jest.Mock).mockRejectedValue(error);
-  
+      
         await listaPessoas(req, res, next);
-  
+      
         expect(res.status).toHaveBeenCalledWith(500);
         expect(res.send).toHaveBeenCalledWith('Erro ao listar as pessoas');
         expect(next).toHaveBeenCalledWith(error);
