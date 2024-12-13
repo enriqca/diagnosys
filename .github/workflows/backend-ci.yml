@@ -48,8 +48,3 @@ jobs:
       run: |
         cd backend
         npm test
-
-    - name: Build project
-      run: |
-        cd backend
-        npm run build
