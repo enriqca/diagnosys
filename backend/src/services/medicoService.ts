@@ -20,7 +20,7 @@ export async function listaMedicos(
     }
     
   } catch (error) {
-    console.error('Erro ao listar os medicos:', error);
+    console.log('Erro ao listar os medicos:', error);
     res.status(500).send('Erro ao listar os medicos');
     next(error);
   }
@@ -44,7 +44,7 @@ export async function buscaMedico(
     }
     
   } catch (error) {
-    console.error('Erro ao buscar medico:', error);
+    console.log('Erro ao buscar medico:', error);
     res.status(500).send('Erro ao buscar medico');
     next(error);
   }
@@ -68,7 +68,7 @@ export async function buscaMedicoPorNome(
     }
     
   } catch (error) {
-    console.error('Erro ao buscar medico:', error);
+    console.log('Erro ao buscar medico:', error);
     res.status(500).send('Erro ao buscar medico');
     next(error);
   }
@@ -89,7 +89,7 @@ export async function criaMedico(
     res.status(201).json(medico);
 
   } catch (error) {
-    console.error('Erro ao adicionar medico:', error);
+    console.log('Erro ao adicionar medico:', error);
     res.status(500).send('Erro ao adicionar medico');
     next(error);
   }
@@ -114,7 +114,7 @@ export async function deletaMedico(
     }
 
   } catch (error) {
-    console.error('Erro ao excluir medico:', error);
+    console.log('Erro ao excluir medico:', error);
     res.status(500).send('Erro ao excluir medico');
     next(error);
   }
@@ -136,7 +136,7 @@ export async function listaReceitas(
       res.status(404).send('Nenhum registro encontrado para o usuário fornecido');
     }
   } catch (error) {
-    console.error('Erro ao listar os registros:', error);
+    console.log('Erro ao listar os registros:', error);
     res.status(500).send('Erro ao listar os registros');
     next(error);
   }
@@ -161,7 +161,7 @@ export async function criaReceita(
     }
 
   } catch (error) {
-    console.error('Erro ao adicionar registro:', error);
+    console.log('Erro ao adicionar registro:', error);
     res.status(500).send('Erro ao adicionar registro');
     next(error);
   }
@@ -181,7 +181,7 @@ export async function listaConsultasGeral(
       res.status(404).send('Nenhuma consulta encontrada para o usuário fornecido');
     }
   } catch (error) {
-    console.error('Erro ao listar as consultas:', error);
+    console.log('Erro ao listar as consultas:', error);
     res.status(500).send('Erro ao listar as consultas');
     next(error);
   }
@@ -203,7 +203,7 @@ export async function listaConsultas(
       res.status(404).send('Nenhuma consulta encontrada para o usuário fornecido');
     }
   } catch (error) {
-    console.error('Erro ao listar as consultas:', error);
+    console.log('Erro ao listar as consultas:', error);
     res.status(500).send('Erro ao listar as consultas');
     next(error);
   }
@@ -245,7 +245,7 @@ export async function criaConsulta(
     }
 
   } catch (error) {
-    console.error('Erro ao adicionar consulta:', error);
+    console.log('Erro ao adicionar consulta:', error);
     res.status(500).send('Erro ao adicionar consulta');
     next(error);
   }
@@ -269,7 +269,7 @@ export async function buscaUsuario(
     }
 
   } catch (error) {
-    console.error('Erro ao listar o usuario:', error);
+    console.log('Erro ao listar o usuario:', error);
     res.status(500).send('Erro ao listar o usuario');
     next(error);
   }

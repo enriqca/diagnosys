@@ -16,7 +16,7 @@ export async function listaPessoas(
     }
     
   } catch (error) {
-    console.error('Erro ao listar as pessoas:', error);
+    console.log('Erro ao listar as pessoas:', error);
     res.status(500).send('Erro ao listar as pessoas');
     next(error);
   }
@@ -40,7 +40,7 @@ export async function buscaPessoa(
     }
     
   } catch (error) {
-    console.error('Erro ao buscar pessoa:', error);
+    console.log('Erro ao buscar pessoa:', error);
     res.status(500).send('Erro ao buscar pessoa');
     next(error);
   }
@@ -59,7 +59,7 @@ export async function criaPessoa(
     res.status(201).json(pessoa);
 
   } catch (error) {
-    console.error('Erro ao adicionar pessoa:', error);
+    console.log('Erro ao adicionar pessoa:', error);
     res.status(500).send('Erro ao adicionar pessoa');
     next(error);
   }
@@ -84,7 +84,7 @@ export async function deletaPessoa(
     }
 
   } catch (error) {
-    console.error('Erro ao excluir pessoa:', error);
+    console.log('Erro ao excluir pessoa:', error);
     res.status(500).send('Erro ao excluir pessoa');
     next(error);
   }

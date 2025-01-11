@@ -20,11 +20,11 @@ export async function listaUsuarios(
     if (usuarios.length > 0) {
       res.status(200).json(usuarios);
     } else {
+      console.log("Nenhum usuário encontrado");
       res.status(404).send('Não há nenhum usuário cadastrado');
     }
-
   } catch (error) {
-    console.error('Erro ao listar os usuários:', error);
+    console.log('Erro ao listar os usuários:', error);
     res.status(500).send('Erro ao listar os usuários');
     next(error);
   }
@@ -48,7 +48,7 @@ export async function buscaUsuario(
     }
     
   } catch (error) {
-    console.error('Erro ao buscar usuário:', error);
+    console.log('Erro ao buscar usuário:', error);
     res.status(500).send('Erro ao buscar usuário');
     next(error);
   }
@@ -88,7 +88,7 @@ export async function criaUsuario(
     res.status(201).json(usuario);
 
   } catch (error) {
-    console.error('Erro ao adicionar usuário:', error);
+    console.log('Erro ao adicionar usuário:', error);
     res.status(500).send('Erro ao adicionar usuário');
     next(error);
   }
@@ -113,7 +113,7 @@ export async function deletaUsuario(
     }
 
   } catch (error) {
-    console.error('Erro ao excluir usuário:', error);
+    console.log('Erro ao excluir usuário:', error);
     res.status(500).send('Erro ao excluir usuário');
     next(error);
   }
@@ -135,7 +135,7 @@ export async function listaReceitas(
       res.status(404).send('Nenhum registro encontrado para o usuário fornecido');
     }
   } catch (error) {
-    console.error('Erro ao listar os registros:', error);
+    console.log('Erro ao listar os registros:', error);
     res.status(500).send('Erro ao listar os registros');
     next(error);
   }
@@ -157,7 +157,7 @@ export async function listaConsultas(
       res.status(404).send('Nenhuma consulta encontrada para o usuário fornecido');
     }
   } catch (error) {
-    console.error('Erro ao listar as consulta:', error);
+    console.log('Erro ao listar as consulta:', error);
     res.status(500).send('Erro ao listar as consulta');
     next(error);
   }
@@ -189,7 +189,7 @@ export async function atualizaUsuario(
 
     res.status(200).json(atualizado);
   } catch (error) {
-    console.error('Erro ao atualizar usuário:', error);
+    console.log('Erro ao atualizar usuário:', error);
     res.status(500).send('Erro ao atualizar usuário');
     next(error);
   }
@@ -230,7 +230,7 @@ export async function logarUsuario(
     res.status(200).json({ mensagem: `Login bem-sucedido!`, nome: nome });
 
   }catch (error) {
-      console.error('Erro ao verificar usuário:', error);
+      console.log('Erro ao verificar usuário:', error);
       res.status(500).send('Erro ao verificar usuário');
       next(error);
     }
