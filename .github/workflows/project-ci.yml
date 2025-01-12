@@ -58,4 +58,4 @@ jobs:
     - name: Run tests frontend
       run: |
         cd frontend
-        npm cy:run
+        npm run cy:run
