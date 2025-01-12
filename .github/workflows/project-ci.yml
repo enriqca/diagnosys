@@ -51,7 +51,7 @@ jobs:
 
     - name: Install dependencies frontend
       run: |
-        cd fronted
+        cd frontend
         npm install
         npm fund
 
