@@ -3,10 +3,11 @@ name: E2E Tests
 on:
   push:
     branches:
-      - main
+      - master
+      - 'feature/*'
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   e2e:
@@ -19,7 +20,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: diagnosys
         ports:
-          - 3306:3306
+          - 3307:3306
         options: >-
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
