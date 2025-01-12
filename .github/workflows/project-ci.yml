@@ -38,13 +38,24 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install dependencies
+    - name: Install dependencies backend
       run: |
         cd backend
         npm install
         npm fund
 
-    - name: Run tests
+    - name: Run tests backend
       run: |
         cd backend
         npm test
+
+    - name: Install dependencies frontend
+      run: |
+        cd fronted
+        npm install
+        npm fund
+
+    - name: Run tests frontend
+      run: |
+        cd frontend
+        npm cy:run
