@@ -1,0 +1,77 @@
+name: E2E Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: diagnosys
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm install
+
+      - name: Set up backend environment variables
+        run: |
+          echo "DATABASE_HOST=127.0.0.1" >> ./backend/.env
+          echo "DATABASE_USER=root" >> ./backend/.env
+          echo "DATABASE_PASSWORD=root" >> ./backend/.env
+          echo "DATABASE_NAME=diagnosys" >> ./backend/.env
+
+      - name: Start backend server
+        working-directory: ./backend
+        run: npm start &
+        env:
+          NODE_ENV: test
+
+      - name: Wait for backend to be ready
+        run: sleep 15
+
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      - name: Set up frontend environment variables
+        run: |
+          echo "VITE_API_URL=http://localhost:3000" >> ./frontend/.env
+
+      - name: Start frontend server
+        working-directory: ./frontend
+        run: npm run dev &
+        env:
+          NODE_ENV: test
+
+      - name: Wait for frontend to be ready
+        run: sleep 15
+
+      - name: Run Cypress tests
+        working-directory: ./frontend
+        run: npm run test:e2e:headless

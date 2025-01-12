@@ -48,14 +48,3 @@ jobs:
       run: |
         cd backend
         npm test
-
-    - name: Install dependencies frontend
-      run: |
-        cd frontend
-        npm install
-        npm fund
-
-    - name: Run tests frontend
-      run: |
-        cd frontend
-        npm run cy:run
