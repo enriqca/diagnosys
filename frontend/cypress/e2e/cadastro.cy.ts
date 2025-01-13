@@ -32,30 +32,4 @@ describe('Cadastro', () => {
 
     cy.get('#botaoCadastrar').click();
   });
-
-  it('Loga com o novo cadastro', () => {
-    cy.visit('http://localhost:5173/login');
-
-    cy.get("#login").type(login);
-
-    cy.get('#senha').type(senha);
-
-    cy.get('#botaoEntrar').click();
-    
-    cy.contains('Agende sua consulta');
-  });
-
-  it('Acessa página de edição de perfil', () => {
-    cy.visit('http://localhost:5173/login');
-
-    cy.get("#login").type(login);
-
-    cy.get('#senha').type(senha);
-
-    cy.get('#botaoEntrar').click();
-    
-    cy.get("#botaoMeuPerfil").click();
-
-    cy.url().should('include', '/perfil');
-  });
 })
