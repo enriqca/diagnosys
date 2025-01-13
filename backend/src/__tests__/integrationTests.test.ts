@@ -1,9 +1,9 @@
 import { listaMedicos, criaMedico, listaReceitas, criaReceita, listaConsultas, criaConsulta } from '@services/medicoService';
-import { listarMedicos, buscarMedico, buscarMedicoPorNome, criarMedico, buscarMedicoPorIdPessoa } from '@dao/medicoDAO';
+import { listarMedicos, buscarMedico, criarMedico, buscarMedicoPorIdPessoa } from '@dao/medicoDAO';
 import { buscarUsuario } from '@dao/usuarioDAO';
 import { listarReceitasMedico, criarReceita } from '@dao/receitaDAO';
-import { listarConsultasMedico, criarConsulta, listarConsultasGeral } from '@dao/consultaDAO';
-import { listaPessoas, buscaPessoa, criaPessoa, deletaPessoa } from '@services/pessoaService';
+import { listarConsultasMedico, criarConsulta } from '@dao/consultaDAO';
+import { listaPessoas, buscaPessoa, criaPessoa } from '@services/pessoaService';
 import { buscarPessoa, criarPessoa, listarPessoas } from '@dao/pessoaDAO';
 import { Request, Response, NextFunction } from 'express';
 
