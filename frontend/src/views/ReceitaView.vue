@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="w-100 d-flex flex-row-reverse">
-      <b-card class="w-75 mr-5" style="height: 70vh">
+    <div class="w-100 d-flex justify-content-center">
+      <b-card style="min-height: 70vh; width: 60%;margin-left: 25%;" aling="center">
         <b-container>
           <b-row class="d-flex justify-content-center">
             <h1>Receitas</h1>

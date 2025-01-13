@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="w-100 d-flex justify-content-center">
-      <b-card class="w-100 mr-10" style="height: 70vh" aling="center">
+      <b-card style="min-height: 70vh; width: 60%;margin-left: 25%;" aling="center">
         <b-container class="mt-4">
           <h1 class="text-left">Agende sua consulta!</h1>
           <b-row class="mt-4">

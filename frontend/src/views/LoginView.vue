@@ -1,5 +1,5 @@
 <template>
-   <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+  <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
     <b-container>
       <b-card style="height: 80vh">
         <b-row>
@@ -19,8 +19,8 @@
                 às suas necessidades de saúde.
               </p>
             </b-row>
-            <b-row class="bg-alert">
-              <img src="/imgs/image_1.png" width="100%" height="100%" alt="" />
+            <b-row class="justify-content-center mt-3 p-x-3">
+              <img src="/imgs/image_1.png" width="35%" alt="" />
             </b-row>
           </b-col>
           <b-col cols="6">

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="w-100 d-flex flex-row-reverse">
-      <b-card class="w-75 mr-5" style="height: 70vh">
+    <div class="w-100 d-flex justify-content-center">
+      <b-card style="min-height: 70vh; width: 60%;margin-left: 25%;" aling="center">
         <b-container>
           <b-row class="d-flex justify-content-center">
             <h1>Nova consulta</h1>
@@ -15,7 +15,8 @@
                       <label for="nomePaciente">Paciente:</label>
                     </b-form-row>
                     <b-form-row>
-                      <TextInput id="nomePaciente" name="nomePaciente" placeholder="Nome paciente" v-model="registro.nomePaciente" readonly />
+                      <TextInput id="nomePaciente" name="nomePaciente" placeholder="Nome paciente"
+                        v-model="registro.nomePaciente" readonly />
                     </b-form-row>
                   </b-col>
                   <b-col cols="2" class="mr-3">
@@ -23,7 +24,7 @@
                       <label for="data">Data:</label>
                     </b-form-row>
                     <b-form-row>
-                      <b-form-input id="data" name="data" type="text" v-model="registro.data"  readonly />
+                      <b-form-input id="data" name="data" type="text" v-model="registro.data" readonly />
                     </b-form-row>
                   </b-col>
                   <b-col cols="3">
@@ -31,7 +32,8 @@
                       <label for="tipoConsulta">Tipo:</label>
                     </b-form-row>
                     <b-form-row>
-                      <b-form-select v-model="registro.tipoConsulta" :options="combos.tipoConsulta.itens" class="mb-3"  id="tipoConsulta"/>
+                      <b-form-select v-model="registro.tipoConsulta" :options="combos.tipoConsulta.itens" class="mb-3"
+                        id="tipoConsulta" />
                     </b-form-row>
                   </b-col>
                 </b-form-row>
@@ -41,13 +43,13 @@
                       <label for="descricao">Descrição</label>
                     </b-form-row>
                     <b-form-row>
-                      <b-form-textarea id="descricao" name="descricao" placeholder="Descrição..." rows="4"
-                        max-rows="7"  v-model="registro.descricao"/>
+                      <b-form-textarea id="descricao" name="descricao" placeholder="Descrição..." rows="4" max-rows="7"
+                        v-model="registro.descricao" />
                     </b-form-row>
                   </b-col>
                 </b-form-row>
                 <b-form-row class="d-flex justify-content-center">
-                  <b-button variant="info" @click="registrar" id="botaoRegistrar" >REGISTRAR</b-button>
+                  <b-button variant="info" @click="registrar" id="botaoRegistrar">REGISTRAR</b-button>
                 </b-form-row>
               </b-form>
             </b-col>

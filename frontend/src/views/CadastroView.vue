@@ -19,8 +19,8 @@
                 às suas necessidades de saúde.
               </p>
             </b-row>
-            <b-row class="bg-alert">
-              <img src="/imgs/image_1.png" width="100%" height="100%" alt="" />
+            <b-row class="justify-content-center mt-3 p-x-3">
+              <img src="/imgs/image_1.png" width="35%" alt="" />
             </b-row>
           </b-col>
           <b-col cols="6">
@@ -45,7 +45,7 @@
                   <b-form-row>
                     <b-col cols="6">
                       <b-row class="w-100 d-flex justify-content-center">
-                        <b-button id="botaoConfirmar" class="px-3" variant="outline-secondary" @click="cancelar"> 
+                        <b-button id="botaoConfirmar" class="px-3" variant="outline-secondary" @click="cancelar">
                           Cancelar
                         </b-button>
                       </b-row>
@@ -67,7 +67,8 @@
                     <TextInput id="senha" name="senha" placeholder="Senha" v-model="senha" />
                   </b-form-row>
                   <b-form-row class="mb-3">
-                    <TextInput id="confirmarSenha" name="confirmarSenha" placeholder="Confirmar senha" v-model="confirmaSenha" />
+                    <TextInput id="confirmarSenha" name="confirmarSenha" placeholder="Confirmar senha"
+                      v-model="confirmaSenha" />
                   </b-form-row>
                   <b-form-row>
                     <b-col cols="6">
