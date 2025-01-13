@@ -1,9 +1,10 @@
-import { listaMedicos, buscaMedico, buscaMedicoPorNome, criaMedico, deletaMedico, listaReceitas, criaReceita, listaConsultasGeral, listaConsultas, criaConsulta, buscaUsuario } from '@services/medicoService';
-import { listarMedicos, buscarMedico, buscarMedicoPorNome, criarMedico, deletarMedico, buscarMedicoPorIdPessoa } from '@dao/medicoDAO';
-import { criarPessoa } from '@dao/pessoaDAO';
+import { listaMedicos, criaMedico, listaReceitas, criaReceita, listaConsultas, criaConsulta } from '@services/medicoService';
+import { listarMedicos, buscarMedico, buscarMedicoPorNome, criarMedico, buscarMedicoPorIdPessoa } from '@dao/medicoDAO';
 import { buscarUsuario } from '@dao/usuarioDAO';
 import { listarReceitasMedico, criarReceita } from '@dao/receitaDAO';
 import { listarConsultasMedico, criarConsulta, listarConsultasGeral } from '@dao/consultaDAO';
+import { listaPessoas, buscaPessoa, criaPessoa, deletaPessoa } from '@services/pessoaService';
+import { buscarPessoa, criarPessoa, listarPessoas } from '@dao/pessoaDAO';
 import { Request, Response, NextFunction } from 'express';
 
 jest.mock('@dao/medicoDAO');
@@ -141,4 +142,57 @@ describe('Medico Service', () => {
       expect(res.json).toHaveBeenCalledWith([consultaCriada]);
     });
 
+    describe('Testes de Integração de Pessoa', () => {
+      let req: Partial<Request>;
+      let res: Partial<Response>;
+      let next: NextFunction;
+    
+      beforeEach(() => {
+        req = {};
+        res = {
+          status: jest.fn().mockReturnThis(),
+          json: jest.fn(),
+          send: jest.fn(),
+        };
+        next = jest.fn();
+      });
+    
+      it('Deve criar uma pessoa e listá-la', async () => {
+        req.body = { nome: 'Pessoa Integração' };
+    
+        // Mock do DAO para criação de pessoa
+        (criarPessoa as jest.Mock).mockResolvedValue({ id: 1, nome: 'Pessoa Integração' });
+    
+        // Testando criação da pessoa
+        await criaPessoa(req as Request, res as Response, next);
+        expect(res.status).toHaveBeenCalledWith(201);
+        expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ nome: 'Pessoa Integração' }));
+    
+        // Mock do DAO para listagem de pessoas
+        (listarPessoas as jest.Mock).mockResolvedValue([{ id: 1, nome: 'Pessoa Integração' }]);
+    
+        // Testando listagem de pessoas
+        await listaPessoas(req as Request, res as Response, next);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.json).toHaveBeenCalledWith(expect.arrayContaining([{ id: 1, nome: 'Pessoa Integração' }]));
+      });
+    
+      it('Deve criar e buscar uma pessoa', async () => {
+        req.body = { nome: 'Pessoa Teste' };
+    
+        // Mock para criar pessoa
+        (criarPessoa as jest.Mock).mockResolvedValue({ id: 1, nome: 'Pessoa Teste' });
+        await criaPessoa(req as Request, res as Response, next);
+    
+        req.params = { id: '1' };
+    
+        // Mock para buscar pessoa
+        (buscarPessoa as jest.Mock).mockResolvedValue({ id: 1, nome: 'Pessoa Teste' });
+    
+        // Testando a busca pela pessoa
+        await buscaPessoa(req as Request, res as Response, next);
+        expect(res.status).toHaveBeenCalledWith(200);
+        expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ nome: 'Pessoa Teste' }));
+      });
+    });
 });
